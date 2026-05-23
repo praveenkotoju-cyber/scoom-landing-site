@@ -1,14 +1,10 @@
 <!DOCTYPE html><html lang="en" data-redirect-timezone="1" class="lenis"><head>
 	
-	<style>
-	/* Universal UI filter to kill Framer watermark layouts */
-	[class*="framer-badge"], 
-	[id*="framer-badge"], 
-	div[style*="z-index: 2147480000"], 
-	iframe[src*="framer.com"],
+<style>
+	/* Targeted Override: Only kills elements explicitly matching the badge structure */
 	#__framer-badge-container,
-	div[class*="Badge"],
-	div:has(> a[href*="framer.com"]) {
+	framer-badge,
+	.framer-badge {
 		display: none !important;
 		visibility: hidden !important;
 		opacity: 0 !important;
@@ -17,27 +13,26 @@
 	</style>
 
 	<script>
-	// Dynamic runtime observer loops to clean remaining textual elements
 	const killFramerTrash = () => {
-		const selectors = [
-			'#framer-badge-container', 
-			'.framer-badge', 
-			'framer-badge', 
-			'#__framer-badge-container',
-			'a[href*="framer.com/projects/new?duplicate="]'
-		];
-		selectors.forEach(selector => {
-			document.querySelectorAll(selector).forEach(el => el.remove());
-		});
+		// Target the exact ID container Framer uses for floating widgets
+		const badgeContainer = document.getElementById('__framer-badge-container');
+		if (badgeContainer) {
+			badgeContainer.remove();
+		}
+		
+		// Target the text inside that specific lower-right corner floating layer
 		document.querySelectorAll('div').forEach(el => {
-			if (el.textContent.includes('Like this template?')) {
-				el.remove();
+			if (el.textContent === 'Like this template?' || el.textContent.includes('Like this template?')) {
+				// Only remove it if it's a small floating utility piece, not a main body layout section
+				if (el.offsetWidth < 300 && el.offsetHeight < 150) {
+					el.remove();
+				}
 			}
 		});
 	};
 	killFramerTrash();
 	document.addEventListener('DOMContentLoaded', killFramerTrash);
-	const launchBrutalKillLoop = setInterval(killFramerTrash, 100);
+	const launchBrutalKillLoop = setInterval(killFramerTrash, 150);
 	setTimeout(() => clearInterval(launchBrutalKillLoop), 3000);
 	</script>
 	
