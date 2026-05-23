@@ -4,12 +4,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	
-	<style>
+<style>
 	/* Brutal Force Override to kill Framer branding widgets */
 	[class*="framer-badge"], 
 	[id*="framer-badge"], 
 	div[style*="z-index: 2147480000"], 
-	iframe[src*="framer.com"] {
+	iframe[src*="framer.com"],
+	#__framer-badge-container,
+	div[class*="Badge"],
+	div:has(> a[href*="framer.com"]) {
 		display: none !important;
 		visibility: hidden !important;
 		opacity: 0 !important;
