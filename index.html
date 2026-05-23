@@ -1,6 +1,45 @@
 <!DOCTYPE html><html lang="en" data-redirect-timezone="1" class="lenis"><head>
 	<meta charset="utf-8">
-	
+	<style>
+	/* Universal UI filter to kill Framer watermark layouts */
+	[class*="framer-badge"], 
+	[id*="framer-badge"], 
+	div[style*="z-index: 2147480000"], 
+	iframe[src*="framer.com"],
+	#__framer-badge-container,
+	div[class*="Badge"],
+	div:has(> a[href*="framer.com"]) {
+		display: none !important;
+		visibility: hidden !important;
+		opacity: 0 !important;
+		pointer-events: none !important;
+	}
+	</style>
+
+	<script>
+	// Dynamic runtime observer loops to clean remaining textual elements
+	const killFramerTrash = () => {
+		const selectors = [
+			'#framer-badge-container', 
+			'.framer-badge', 
+			'framer-badge', 
+			'#__framer-badge-container',
+			'a[href*="framer.com/projects/new?duplicate="]'
+		];
+		selectors.forEach(selector => {
+			document.querySelectorAll(selector).forEach(el => el.remove());
+		});
+		document.querySelectorAll('div').forEach(el => {
+			if (el.textContent.includes('Like this template?')) {
+				el.remove();
+			}
+		});
+	};
+	killFramerTrash();
+	document.addEventListener('DOMContentLoaded', killFramerTrash);
+	const launchBrutalKillLoop = setInterval(killFramerTrash, 100);
+	setTimeout(() => clearInterval(launchBrutalKillLoop), 3000);
+	</script>
 	
 	
 	<!-- Start of headStart -->
