@@ -1,45 +1,48 @@
-<!DOCTYPE html><html lang="en" data-redirect-timezone="1" class="lenis"><head>
+<!DOCTYPE html>
+<html lang="en" data-redirect-timezone="1" class="lenis">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	
 	<style>
-/* Brutal Force Override to kill Framer branding widgets */
-[class*="framer-badge"], 
-[id*="framer-badge"], 
-div[style*="z-index: 2147480000"], 
-iframe[src*="framer.com"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-</style>
+	/* Brutal Force Override to kill Framer branding widgets */
+	[class*="framer-badge"], 
+	[id*="framer-badge"], 
+	div[style*="z-index: 2147480000"], 
+	iframe[src*="framer.com"] {
+		display: none !important;
+		visibility: hidden !important;
+		opacity: 0 !important;
+		pointer-events: none !important;
+	}
+	</style>
 
 	<script>
+	// Dynamic observer to locate and remove hidden affiliate buttons
 	const killFramerTrash = () => {
-	    const selectors = [
-	        '#framer-badge-container', 
-	        '.framer-badge', 
-	        'framer-badge', 
-	        '#__framer-badge-container',
-	        'a[href*="framer.com/projects/new?duplicate="]'
-	    ];
-	    selectors.forEach(selector => {
-	        document.querySelectorAll(selector).forEach(el => el.remove());
-	    });
-	    document.querySelectorAll('a').forEach(link => {
-	        const href = link.getAttribute('href') || '';
-	        if (href.includes('nasE63fRTzwlXz8HQOQr') || href.includes('duplicateType=siteTemplate')) {
-	            const container = link.closest('div') || link;
-	            container.remove();
-	        }
-	    });
+		const selectors = [
+			'#framer-badge-container', 
+			'.framer-badge', 
+			'framer-badge', 
+			'#__framer-badge-container',
+			'a[href*="framer.com/projects/new?duplicate="]'
+		];
+		selectors.forEach(selector => {
+			document.querySelectorAll(selector).forEach(el => el.remove());
+		});
+		document.querySelectorAll('a').forEach(link => {
+			const href = link.getAttribute('href') || '';
+			if (href.includes('nasE63fRTzwlXz8HQOQr') || href.includes('duplicateType=siteTemplate')) {
+				const container = link.closest('div') || link;
+				container.remove();
+			}
+		});
 	};
 	killFramerTrash();
 	document.addEventListener('DOMContentLoaded', killFramerTrash);
 	const launchBrutalKillLoop = setInterval(killFramerTrash, 100);
 	setTimeout(() => clearInterval(launchBrutalKillLoop), 3000);
 	</script>
-	<meta charset="utf-8">
-	
-	
 	
 	<!-- Start of headStart -->
     
