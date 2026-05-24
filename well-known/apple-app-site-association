@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["YOUR_APPLE_TEAM_ID.YOUR_IOS_BUNDLE_IDENTIFIER"],
+        "components": [
+          {
+            "/": "/eventDetailsPage*",
+            "comment": "Match native event detail navigation arrays"
+          }
+        ]
+      }
+    ]
+  }
+}
