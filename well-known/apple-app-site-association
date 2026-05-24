@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["YOUR_APPLE_TEAM_ID.YOUR_IOS_BUNDLE_IDENTIFIER"],
+        "appIDs": ["YL358P5F7T.com.nexora.scoom.superapp"],
         "components": [
           {
             "/": "/eventDetailsPage*",
