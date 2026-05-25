@@ -20,17 +20,25 @@
         {
           "key": "Content-Type",
           "value": "application/json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate, max-age=0"
         }
       ]
     }
   ],
   "rewrites": [
     {
-      "source": "/.well-known/(.*)",
-      "destination": "/.well-known/$1"
+      "source": "/.well-known/apple-app-site-association",
+      "destination": "/.well-known/apple-app-site-association"
     },
     {
-      "source": "/(.*)",
+      "source": "/.well-known/assetlinks.json",
+      "destination": "/.well-known/assetlinks.json"
+    },
+    {
+      "source": "/((?!\\.well-known).*)" ,
       "destination": "/index.html"
     }
   ]
