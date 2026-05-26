@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Content-Type",
-          "value": "application/json"
+          "value": "application/json; charset=utf-8"
         },
         {
           "key": "Cache-Control",
@@ -36,10 +36,6 @@
     {
       "source": "/.well-known/assetlinks.json",
       "destination": "/.well-known/assetlinks.json"
-    },
-    {
-      "source": "/((?!\\.well-known).*)" ,
-      "destination": "/index.html"
     }
   ]
 }
