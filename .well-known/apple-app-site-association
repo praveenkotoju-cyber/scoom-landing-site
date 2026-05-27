@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["YL358P5F7T.com.nexora.scoom.superapp"],
+        "components": [
+          {
+            "path": "/eventDetailsPage*",
+            "comment": "Match native event detail navigation arrays"
+          }
+        ]
+      }
+    ]
+  }
