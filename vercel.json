@@ -18,8 +18,8 @@
   ],
   "redirects": [
     {
-      "source": "/eventDetailsPage:path*",
-      "destination": "https://app.scoom.in/eventDetailsPage:path*",
+      "source": "/((?!\\.well-known/.*)eventDetailsPage.*)",
+      "destination": "https://app.scoom.in/eventDetailsPage",
       "permanent": false
     }
   ]
