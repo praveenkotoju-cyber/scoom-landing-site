@@ -1,10 +1,15 @@
 [
   {
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.nexora.scoom.superapp",
-    "sha256_cert_fingerprints": ["A6:AB:4A:16:50:0F:8C:83:F9:50:5C:2F:F2:12:2E:74:D2:0A:C4:3C:65:AE:FB:70:B2:65:73:6B:A4:A1:54:12"]
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nexora.scoom.superapp",
+      "sha256_cert_fingerprints": [
+        "A6:AB:4A:16:50:0F:8C:83:F9:50:5C:2F:F2:12:2E:74:D2:0A:C4:3C:65:AE:FB:70:B2:65:73:6B:A4:A1:54:12"
+      ]
+    }
   }
-}
 ]
